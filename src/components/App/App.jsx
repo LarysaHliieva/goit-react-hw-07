@@ -6,6 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import ContactForm from "../ContactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
 import ContactList from "../ContactList/ContactList";
+import NoticeError from "../NoticeError/NoticeError";
 
 import { fetchContacts } from "../../redux/contactsOps";
 
@@ -28,6 +29,7 @@ function App() {
       <ContactForm />
       <SearchBox />
       {loading && <CircularProgress color="success" />}
+      <NoticeError />
       <ContactList />
     </div>
   );
