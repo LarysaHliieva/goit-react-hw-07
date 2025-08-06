@@ -4,12 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../Button/Button";
 
-import styles from "./ContactForm.module.css";
 import { addContact } from "../../redux/contactsOps";
+
+import { selectContacts } from "../../redux/contactSlice";
+
+import styles from "./ContactForm.module.css";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contacts.items);
+  const contacts = useSelector(selectContacts);
 
   const [state, setState] = useState({
     name: "",

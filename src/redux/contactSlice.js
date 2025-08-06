@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { fetchContacts, addContact, deleteContact } from "./contactsOps";
 
+import { selectFilter } from "./filtersSlice";
+
 const handlePending = (state) => {
   state.loading = true;
 };
@@ -49,3 +51,26 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
+
+export const selectContacts = (state) => state.contacts.items;
+
+export const selectLoading = (state) => state.contacts.loading;
+
+export const selectError = (state) => state.contacts.error;
+
+export const selectFilteredContacts = (state) => {
+  const filter = selectFilter(state);
+  const contacts = selectContacts(state);
+
+  if (!filter) {
+    return contacts;
+  }
+
+  const normalizedFilter = filter.toLowerCase();
+
+  return contacts.filter(
+    (item) =>
+      item.name.toLowerCase().includes(normalizedFilter) ||
+      item.number.toLowerCase().includes(normalizedFilter)
+  );
+};
