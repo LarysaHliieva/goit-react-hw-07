@@ -3,20 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactList from "./components/ContactList/ContactList";
+import ContactForm from "../ContactForm/ContactForm";
+import SearchBox from "../SearchBox/SearchBox";
+import ContactList from "../ContactList/ContactList";
 
-import { fetchContacts } from "./redux/contactsOps";
+import { fetchContacts } from "../../redux/contactsOps";
 
-import {
-  selectLoading,
-  // selectError,
-} from "./redux/contactSlice";
+import { selectLoading } from "../../redux/contactSlice";
 
 import styles from "./App.module.css";
-
-import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
