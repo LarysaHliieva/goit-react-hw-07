@@ -4,7 +4,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 
 import Button from "../Button/Button";
 
-import { deleteContact } from "../../redux/contactSlice";
+import { deleteContact } from "../../redux/contactsOps";
 
 import styles from "./Contact.module.css";
 

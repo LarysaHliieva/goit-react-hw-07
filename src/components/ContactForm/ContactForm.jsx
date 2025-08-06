@@ -2,12 +2,10 @@ import { useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { nanoid } from "nanoid";
-
 import Button from "../Button/Button";
 
 import styles from "./ContactForm.module.css";
-import { addContact } from "../../redux/contactSlice";
+import { addContact } from "../../redux/contactsOps";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -38,7 +36,6 @@ const ContactForm = () => {
 
     dispatch(
       addContact({
-        id: nanoid(),
         name,
         number,
       })
